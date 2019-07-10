@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace planetvacation.Models
@@ -25,6 +26,28 @@ namespace planetvacation.Models
             Moons.Add(moon.Name, moon);
         }
 
+        public override Location Go(string dir)
+        {
+            switch (dir)
+            {
+                case "previous":
+                    if (Previous != null) return Previous;
+                    return this;
+
+                case "next":
+                    if (Next != null) return Next;
+                    return this;
+
+                default:
+                    return GoToMoon(dir);
+
+            }
+        }
+
+        private Location GoToMoon(string dir)
+        {
+            throw new NotImplementedException();
+        }
 
         public Planet(string name) : base(name)
         {
