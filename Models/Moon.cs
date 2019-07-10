@@ -1,6 +1,16 @@
 namespace planetvacation.Models
 {
-    public class Moon
+    class Moon : Location
     {
+        public Planet HomePlanet { get; set; }
+
+
+
+
+
+
+        public Moon(string name) : base(name)
+        {
+        }
     }
 }
