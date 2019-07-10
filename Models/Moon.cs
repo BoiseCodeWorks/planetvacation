@@ -1,12 +1,19 @@
+using System;
+
 namespace planetvacation.Models
 {
     class Moon : Location
     {
         private Planet HomePlanet { get; set; }
 
-        public Planet Go() //virtual on Location
+        public override Location Go(string dir)
         {
-            return HomePlanet;
+            if (dir == "home")
+            {
+                return HomePlanet;
+            }
+            Console.WriteLine("Invalid location, type 'home' to return to planet");
+            return this;
         }
 
         public Moon(string name, Planet planet) : base(name)

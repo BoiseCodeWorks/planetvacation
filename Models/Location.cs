@@ -13,6 +13,18 @@ namespace planetvacation.Models
             throw new NotImplementedException("Must provide Go method");
         }
 
+        public void Print()
+        {
+            Console.WriteLine($"Welcome to {Name}!!!!!!!!!!!!!");
+            Console.WriteLine("Previous visitors: ");
+            int count = 1;
+            foreach (var name in GuestBook)
+            {
+                Console.WriteLine($"{count}) {name}");
+                count++;
+            }
+        }
+
         public Location(string name)
         {
             Name = name;
