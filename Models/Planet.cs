@@ -46,7 +46,12 @@ namespace planetvacation.Models
 
         private Location GoToMoon(string dir)
         {
-            throw new NotImplementedException();
+            if (Moons.ContainsKey(dir))
+            {
+                return Moons[dir];
+            }
+            Console.WriteLine("Invalid location.");
+            return this;
         }
 
         public Planet(string name) : base(name)
