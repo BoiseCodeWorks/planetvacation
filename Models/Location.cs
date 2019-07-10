@@ -25,6 +25,11 @@ namespace planetvacation.Models
             }
         }
 
+        public void Sign(string str)
+        {
+            GuestBook.Add(str);
+            Console.WriteLine("Thanks for signing the galactic guest book");
+        }
         public Location(string name)
         {
             Name = name;
