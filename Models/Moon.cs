@@ -2,15 +2,16 @@ namespace planetvacation.Models
 {
     class Moon : Location
     {
-        public Planet HomePlanet { get; set; }
+        private Planet HomePlanet { get; set; }
 
-
-
-
-
-
-        public Moon(string name) : base(name)
+        public Planet Go() //virtual on Location
         {
+            return HomePlanet;
+        }
+
+        public Moon(string name, Planet planet) : base(name)
+        {
+            HomePlanet = planet;
         }
     }
 }
