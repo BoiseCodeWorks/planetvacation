@@ -13,6 +13,11 @@ namespace planetvacation.Models
             throw new NotImplementedException("Must provide Go method");
         }
 
+        public virtual void PrintOptions()
+        {
+            System.Console.WriteLine("type 'go home' to return to the planet");
+        }
+
         public void Print()
         {
             Console.WriteLine($"Welcome to {Name}!!!!!!!!!!!!!");

@@ -12,13 +12,13 @@ namespace planetvacation.Models
             {
                 return HomePlanet;
             }
-            Console.WriteLine("Invalid location, type 'home' to return to planet");
             return this;
         }
 
         public Moon(string name, Planet planet) : base(name)
         {
             HomePlanet = planet;
+            planet.AddMoon(this);
         }
     }
 }

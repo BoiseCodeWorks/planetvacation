@@ -14,16 +14,25 @@ namespace planetvacation.Models
         public void AddNextPlanet(Planet next)
         {
             Next = next;
+            next.AddPreviousPlanet(this);
         }
 
         public void AddPreviousPlanet(Planet previous)
         {
             Previous = previous;
         }
-
         public void AddMoon(Moon moon)
         {
-            Moons.Add(moon.Name, moon);
+            Moons.Add(moon.Name.ToLower(), moon);
+        }
+
+        public override void PrintOptions()
+        {
+            System.Console.Write("type 'go next', 'go previous', or 'go' and one of the following moon names: ");
+            foreach (var moon in Moons)
+            {
+                Console.Write(moon.Key + " : ");
+            }
         }
 
         public override Location Go(string dir)
@@ -33,7 +42,6 @@ namespace planetvacation.Models
                 case "previous":
                     if (Previous != null) return Previous;
                     return this;
-
                 case "next":
                     if (Next != null) return Next;
                     return this;
